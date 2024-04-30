@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C/C++ malloc和new, zh-CN">
+    <meta name="keywords" content="ZeroTier—内网穿透, zh-CN">
     <meta name="description" content="心有所向，日复一日，必有精进!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C/C++ malloc和new | 埃芒的博客</title>
+    <title>ZeroTier—内网穿透 | 埃芒的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C/C++ malloc和new</h1>
+                    <h1 class="description center-align post-title">ZeroTier—内网穿透</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/malloc/">
-                                <span class="chip bg-color">malloc</span>
+                            <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                                <span class="chip bg-color">内网穿透</span>
                             </a>
                         
                     </div>
@@ -431,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-C/" class="post-category">
-                                C/C++
+                            <a href="/categories/ZeroTier%E2%80%94%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="post-category">
+                                ZeroTier—内网穿透
                             </a>
                         
                     </div>
@@ -444,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-23
+                    2024-04-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-27
+                    2024-04-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    633
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -485,84 +485,74 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C/C++ malloc和new</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-  <style type="text/css" >a{text-decoration: none}</style>
-</head>
-
-<body class="stackedit">
-  <div class="stackedit__html"><h1><a id="mallocnew_0"></a>malloc和new</h1>
-<blockquote>
-<p>若想在堆区开辟空间时，C是使用malloc函数，而在C++则是使用new关键字。那么，C中的malloc和new有什么区别呢？这也是在面试时常见的问题。</p>
+                <h1 id="ZeroTier—内网穿透"><a href="#ZeroTier—内网穿透" class="headerlink" title="ZeroTier—内网穿透"></a>ZeroTier—内网穿透</h1><h3 id="一、什么是内网穿透？"><a href="#一、什么是内网穿透？" class="headerlink" title="一、什么是内网穿透？"></a>一、什么是内网穿透？</h3><p>​        所谓内网穿透，就是能在即使没有公网IP的情况下也能够经过某种方式实现访问的一种技术，内网穿透的方式有如下几种：</p>
+<p>1.反向代理</p>
+<p>2.虚拟专用网络(VPN)</p>
+<p>3.端口映射</p>
+<p>4.SSH隧道</p>
+<p>以上这些是比较常见的穿透方式，都有各自的利弊，但是绝大部分的内网穿透都是需要中转服务器来实现的，成本巨大，常见的内网穿透技术例如花生壳这些是需要支付费用并且穿透效果也不是很理想，而ZeroTier可以解决这些问题，ZeroTier本质上是一个虚拟专用网络（VPN）工具，在网络良好的状态下，它能够用满上行带宽。</p>
+<h3 id="二、工具简介"><a href="#二、工具简介" class="headerlink" title="二、工具简介"></a>二、工具简介</h3><p>​        ZeroTier是开源的软件项目，它的作用是异地组网，可以实现在不同网段通信的一款工具，也就是我们俗称的<strong>内网穿透</strong>。</p>
+<h3 id="三、准备工作"><a href="#三、准备工作" class="headerlink" title="三、准备工作"></a>三、准备工作</h3><blockquote>
+<p>在此之前，你必须拥有一定的加速器使用的能力，才能确保万无一失，否则会在某一步骤出现问题(被墙)。</p>
 </blockquote>
-<p><b>目录<b><br>
-<a href="#toc-heading-1" style="text-decoration: none">一、malloc和new的基本用法</a><br>
-<a href="#toc-heading-2" style="text-decoration: none">二、自由存储区&amp;堆的概念</a><br>
-<a href="#toc-heading-3" style="text-decoration: none">三、malloc的实现方式</a><br>
-<a href="#toc-heading-4" style="text-decoration: none">四、new的实现方式</a></b></b></p><b>
-<hr>
-<h2><a id="mallocnewa_idtocheading1a_15"></a>一、malloc和new的基本用法<a id="toc-heading-1"></a></h2>
-<p><strong>malloc：</strong> 它是C语言的一个函数，主要是在<u>堆区</u>申堆区请一块指定大小(由开发者指定)的内存空间，由开发者自己管理那一块内存空间。如下：</p>
-<pre class=" language-prism language-C"><code class="language-prism language-C">int *p = (int*)malloc(sizeof(int));
-</code></pre>
-<p>这里的意思是：在堆区申请一块长度为int字节的内存空间，这里可以使用字面变量，但是不建议，因为很危险，然后malloc返回出开辟后的空间，它返回的是void*类型，所以这里我们强转为自己想要的类型。<br>
-<br><br></p>
-<p><strong>new：</strong> C++中开辟空间的关键字，主要作用是在<u>自由存储区</u>申请一块内存空间，申请一块内存空间。如下：</p>
-<pre class=" language-prism language-C++"><code class="language-prism language-C++">int *p = new int(20);
-</code></pre>
-<p>上面的意思是：在自由存储区申请一块长度为int的内存空间，里面存放着值为20。</p>
-<p>从宏观上看，这就相当于C++中的bool类型和Java中的boolean类型一样，都是实现同样的功能，这是它们本质的作用，但是往跟深的看那还有有很多不一样的。malloc和new都是自己开辟内存空间，自己管理释放，相对的配套使用则是free()函数和delete关键字。其中free函数是用来释放malloc申请的空间，而delete是释放new开辟的空间。</p>
-<hr>
-<br>
-<h2><a id="a_idtocheading2a_35"></a>二、自由存储区&amp;堆的概念<a id="toc-heading-2"></a></h2>
-<p>在某些教材中，C++的分区模块是四大部分：代码区、全局区、栈区、堆区。这样说也没错，但实际上还有一个分区：<mark>自由存储区(free store)</mark>。关于对自由存储区的解释：自由存储是C++中通过new和delete动态分配和释放对象的抽象概念，通过new来申请的内存区域可称为自由存储区。而<mark>堆(heap)</mark> 是C语言和操作系统的一个术语，堆是操作系统所维护的一块特殊内存，它提供了动态分配的功能。我们可以用土办法来下面代码输出的结果：</p>
-<pre class=" language-prism language-C++"><code class="language-prism language-C++">int* p = (int*)malloc(4);
-cout << "malloc = " << p << endl;
-p = (int*)malloc(4);
-cout <<"malloc = " << p << endl;
-
-int* p2 = new int(50);
-cout << "new = " << p2 << endl;
-int *p3 = new int(100);
-cout << "new = " << p3 << endl;
-</code></pre>
-<p>运行结果为：<br>
-<img src="https://img-blog.csdnimg.cn/b33f8ecd8c614c14acd56c256203c7e0.png" alt="运行结果"><br>
-可以发现两个malloc出来的地址和new出来的不太一样，这是因为C++使用的区域是自由存储区。关于自由存储区的来历，它是C++在堆上建立的一块区域，其中就是供new来使用。但是需要注意：自由存储区并不等价于堆区，这一点是不能弄混的，不能说自由存储区建立在堆区上那就是堆了。</p>
-<hr>
-<br>
-<h2><a id="malloca_idtocheading3a_55"></a>三、malloc的实现方式<a id="toc-heading-3"></a></h2>
-<p>malloc的实现方式是将堆的特定段空间申请出来，然后供开发者使用，我们以下面这个为示例：</p>
-<pre class=" language-prism language-C"><code class="language-prism language-C">int* p = (int*)malloc(sizeof(int));
-</code></pre>
-<p>上面说过。malloc是个函数，sizeof(int)表示申请的空间大小，之后返回void*类型的地址，这里转为int类型的地址，这一步一定要转类型，否则有可能出现乱码，例如下面这种情况：</p>
-<pre class=" language-prism language-C"><code class="language-prism language-C">void* p = malloc(sizeof(char));
-char* ch = (char*)p;
-*ch = 'a';
-cout << ch << endl;
-</code></pre>
-<p>输出结果：a葺葺葺葺葺輯竱，反正就是乱码。</p>
-<br>
-<hr>
-<br>
-<h2><a id="newa_idtocheading4a_73"></a>四、new的实现方式<a id="toc-heading-4"></a></h2>
-<p>new关键字的实现方式是申请一块特定的区域给某个类型，而且更智能，而非malloc那么繁琐，语法上也更加简单也更智能，并且支持重载。C++底层源码中它是这么写的：<br>
-<img src="https://img-blog.csdnimg.cn/e4b989d34eeb4cfc9da4776b70156450.png" alt="new关键字底层代码"><br>
-这是编译器提供的底层和重载，可以看见它还重载了[]，保证在创建数组的时候能使用，我们也可以<mark>自己重载</mark>。它在申请内存时分为三部分：<br>
-1、调用operator new<br>
-2、编译器运行相应的构造函数以构造数据类型，并为其传入初值。<br>
-3、对象构造完成后，返回一个指向该数据类型的指针。</p>
-<p>注意：当我们重载new的时候，它存放的地方是由我们指定的。在众多C++编译器中，有部分编译器new关键字在底层的写法就是采用malloc来实现，这就是上面所说的有些教材说new是建立在堆区的。</p>
-</b></div>
-</body>
-
-</html>
+<ul>
+<li><p>下载ZeroTier &amp; 注册账号</p>
+<p>下载地址:<a target="_blank" rel="noopener" href="https://www.zerotier.com/">ZeroTier</a>。</p>
+<p>账号注册：账号注册有三种便捷注册，分别是<strong>谷歌账号、GitHub账号、微软账号</strong>能快速注册，也能使用普通邮箱注册，这里没啥难度我就不细说了。</p>
+</li>
+</ul>
+<blockquote>
+<p>当完成下载和账号注册两个步骤之后，我们就可以使用控制台来分配组网了。</p>
+</blockquote>
+<ul>
+<li><strong>创建网络</strong></li>
+</ul>
+<p>​      点击<strong>Create A Network</strong>即可创建一个虚拟局域网，随后，会出现如下的一些信息：</p>
+<p><strong>1.NETWORK ID：</strong>你组网ID，整个ZeroTier的唯一标识符，这个ID需要保管好，不能泄露，否则别人能轻易连接你的内网，这会有安全隐患。</p>
+<p><strong>2.NAME：</strong>你的组网名称(备注)。</p>
+<p><strong>3.DESCRIPTION：</strong>无。</p>
+<p><strong>4.SUBNET：</strong>局域网IP，后面会详细说。</p>
+<p><strong>5.NODES：</strong>连接到组网的终端设备数量。</p>
+<p><strong>6.CREATED：</strong>创建日期。</p>
+<p>随后点击你的组网ID，进入设置页面。</p>
+<ul>
+<li><strong>组网设置</strong></li>
+</ul>
+<p>​        在这里，你可以描述你的网络，给你的网络取别名等操作，下面是初次创建时需要设置的几个点：</p>
+<p><strong>1.Settings-&gt;Basics-&gt;Access Control：</strong> 访问控制，默认选择Private，如果是公共的话会不安全。</p>
+<p><strong>2.Settings-&gt;Basics-&gt;Advanced-&gt;IPv4 Auto-Assign：</strong>这里可以更改整个组网的IP网段，可自由选择，建议使用Easy的方式。</p>
+<p><strong>2.Members：</strong>这个地方一开始是没有成员加入的，因为还没有连接，所以到这一步，我们差不多成功一半以上了。</p>
+<h3 id="四、组网！"><a href="#四、组网！" class="headerlink" title="四、组网！"></a>四、组网！</h3><blockquote>
+<p>这一步主要是将所有需要进行组网的设备都连接在ZeroTier网络，实现内网穿透。</p>
+<p>当前主要以Linux&#x2F;Windows&#x2F;Android进行讲解。</p>
+</blockquote>
+<ul>
+<li><strong>终端设备安装ZeroTier</strong></li>
+</ul>
+<p>​        Linux和Windows的操作基本都是一样的，安装完成后是命令行的方式进行操作，没有GUI，而Android是有界面的。</p>
+<ul>
+<li><strong>连接ZeroTier网络</strong></li>
+</ul>
+<p><strong>Linux：</strong>使用命令<code>zerotier-cli -v</code>查看是否安装成功，如果出现版本号则安装成功，之后输入命令<code>zerotier-cli join 你的组网ID</code>即可连接，后面会显示出连接成功例如“join 200!”等提示，表示连接成功。</p>
+<p><strong>Windows：</strong>同样打开终端，版本号查不查都行，连接的方式和Linux一样。</p>
+<p><strong>Android：</strong>有手就行（</p>
+<ul>
+<li><strong>授权</strong></li>
+</ul>
+<p>​        当连接成功后，ZeroTier的控制台的<strong>Members</strong>设置页就会出现终端的公网IP地址、ZeroTier版本号、设备在线情况等一些内容，这是只需要在<code>Auth</code>选项后面授权（打勾确认）即可加入到你的组网，然后ZeroTier会自动分配ZeroTier的IP给对应的终端，这时只要ZeroTier网路中的终端设备大于等于2台，那么他们能连接上互联网，那么就能在任何有网络的地方互相连接，实现异地组网。</p>
+<h3 id="五、ZeroTier是如何实现组网？"><a href="#五、ZeroTier是如何实现组网？" class="headerlink" title="五、ZeroTier是如何实现组网？"></a>五、ZeroTier是如何实现组网？</h3><p>​        ZeroTier使用一种称为软件定义广域网（SD-WAN）的技术来实现组网。它利用了点对点加密技术，通过连接全球数据中心以及用户设备来创建一个虚拟的全球网络。当设备加入ZeroTier网络时，它会被分配一个唯一的ID，并通过加密通信与其他设备建立连接。ZeroTier借助全球的服务器和节点进行路由，使得用户设备可以跨越不同的网络、防火墙和NAT设备进行通信，这样用户可以很容易地建立安全的私人网络。</p>
+<p>​		ZeroTier的设计初衷是尽可能实现点对点（P2P）通信，以提高网络性能和数据传输效率。当两个设备可以直接建立P2P连接时，数据会直接在它们之间传输，而不需要经过中转服务器，但是若无法实现P2P连接，则会采用中转服务器来进行转发。</p>
+<h3 id="六、异地组网的好处"><a href="#六、异地组网的好处" class="headerlink" title="六、异地组网的好处"></a>六、异地组网的好处</h3><ul>
+<li><strong>云存储：</strong>不需要经过第三方服务器，只要组网内不存在陌生设备，这种通信几乎是没什么安全隐患的。</li>
+<li><strong>SSH连接：</strong>服务器使用SSH连接带来的用处是很大的，这取决于使用者，现在市面上的云服务器非常贵，少则每月上百，多则上千上万，拥有自己的服务器既能把限制终端利用起来，还能对计算机网络有实质的了解。</li>
+<li><strong>游戏串流：</strong>串流本质上是远程控制电脑，但是它的延迟是经过优化的，它能最大程度上呈现被控制主机的画质、反应速度，并且针对游戏专门做优化，串流一般用来控制远程电脑玩游戏。</li>
+<li><strong>拥有仿公网IP：</strong>虽说NAT能缓慢IPv4的消耗速度，但是经过NAT的IP叫内网，内网是无法连接互联网的，而当今拥有一个公网IP既不容易又不固定，采用内网穿透能解决这种问题，但可惜的是，ZeroTier并不能有效解决IPv4枯竭的问题，它本身还是需要依靠公网IP。</li>
+<li>上述只是冰山一角，异地组网的用处远比想象中要好。</li>
+</ul>
+<h3 id="七、ZeroTier的缺点"><a href="#七、ZeroTier的缺点" class="headerlink" title="七、ZeroTier的缺点"></a>七、ZeroTier的缺点</h3><ul>
+<li><strong>穿透失败：</strong>所谓穿透失败就是在ZeroTier的控制台本来显示两台终端都在线，但是就是无法通信，这种情况极大可能是NAT设备限制或者被墙，这时建议切换网络再测试。</li>
+<li><strong>容易被墙：</strong>这一点我目前的解决办法是换网，或者开一会加速器。</li>
+</ul>
 
                 
             </div>
@@ -589,7 +579,7 @@ cout << ch << endl;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aimang2002.github.io/2022/11/23/C%20_C++%20malloc%E5%92%8Cnew/">https://aimang2002.github.io/2022/11/23/C%20_C++%20malloc%E5%92%8Cnew/</a>
+                    <a href="https://aimang2002.github.io/2024/04/30/ZeroTier/ZeroTier%E2%80%94%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">https://aimang2002.github.io/2024/04/30/ZeroTier/ZeroTier%E2%80%94%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -627,8 +617,8 @@ cout << ch << endl;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/malloc/">
-                                    <span class="chip bg-color">malloc</span>
+                                <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                                    <span class="chip bg-color">内网穿透</span>
                                 </a>
                             
                         </div>
@@ -798,9 +788,60 @@ cout << ch << endl;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/04/30/ZeroTier/ZeroTier%E2%80%94%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="ZeroTier—内网穿透">
+                        
+                        <span class="card-title">ZeroTier—内网穿透</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ZeroTier%E2%80%94%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="post-category">
+                                    ZeroTier—内网穿透
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                        <span class="chip bg-color">内网穿透</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2023/01/23/Windows10%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
                     <div class="card-image">
@@ -818,9 +859,9 @@ cout << ch << endl;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -828,55 +869,6 @@ cout << ch << endl;
                             
                         </span>
                     </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/09/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%BAO(n)%E7%9A%841_n%E5%9B%A0%E6%95%B0%E4%B9%8B%E5%92%8C/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="数据结构和算法————复杂度为O(n)的1~n因数之和">
-                        
-                        <span class="card-title">数据结构和算法————复杂度为O(n)的1~n因数之和</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9B%A0%E6%95%B0%E4%B9%8B%E5%92%8C/">
-                        <span class="chip bg-color">因数之和</span>
-                    </a>
-                    
                 </div>
                 
             </div>
