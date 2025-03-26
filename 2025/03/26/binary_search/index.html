@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++11新特性—auto的使用方法, zh-CN">
+    <meta name="keywords" content="二分搜索法, zh-CN">
     <meta name="description" content="心有所向，日复一日，必有精进!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++11新特性—auto的使用方法 | 埃芒的博客</title>
+    <title>二分搜索法 | 埃芒的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++11新特性—auto的使用方法</h1>
+                    <h1 class="description center-align post-title">二分搜索法</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/auto/">
-                                <span class="chip bg-color">auto</span>
+                            <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%8Calgotithm/">
+                                <span class="chip bg-color">二分查找，algotithm</span>
                             </a>
                         
                     </div>
@@ -431,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
-                                C++11新特性
+                            <a href="/categories/algorithm/" class="post-category">
+                                algorithm
                             </a>
                         
                     </div>
@@ -444,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-27
+                    2025-03-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-30
+                    2025-03-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    862
+                    995
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -485,102 +485,143 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="C-11新特性——auto的使用方法"><a href="#C-11新特性——auto的使用方法" class="headerlink" title="C++11新特性——auto的使用方法"></a>C++11新特性——auto的使用方法</h1><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p><a href="#one">1 认识auto<a/><br><a href="#two">2 auto的使用场景<a/><br><a href="#three">3 使用auto的注意事项<a/></p>
-<hr><br>
+                <h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1></br>
 
+</br>
 
-<h2 id="1、认识auto"><a href="#1、认识auto" class="headerlink" title=" 1、认识auto"></a><a id="one"></a> 1、认识auto</h2><p>在C++11新特性中，auto是用来修饰局部变量的，所以局部变量也叫auto变量&#x2F;自动变量。auto是个自动推导出数据类型的关键字，应用的场景较为广，举个最简单的“栗子”：</p>
-<pre><code>int a = 10;
-auto b = 10;
-</code></pre>
-<p>这两个本质上是没有区别的，当整数赋值了变量b时，auto就会推导出类型，上面推出来的是int类型。这就是auto类型的作用</p>
-<hr>
+<h3 id="一、二分查找的思想"><a href="#一、二分查找的思想" class="headerlink" title="一、二分查找的思想"></a>一、二分查找的思想</h3><p><strong>基础描述：</strong>二分查找核心思想是“分而治之”。每次将查找范围缩小为原来的一半，快速缩小寻找目标值的区间。</p>
+<p><strong>前提条件：</strong>数据必须是<span style="color: red;">有序的</span>。</p>
+<p><strong>分治策略：</strong>每次将待查找区间分为两半，通过比较中间元素与目标值，舍弃不可能存在目标值的另一半，逐步缩小搜索范围。</p>
+</br>
 
+</br>
 
-<h2 id="2、auto的使用场景"><a href="#2、auto的使用场景" class="headerlink" title="2、auto的使用场景"></a><a id="two"></a>2、auto的使用场景</h2><p>auto类型的使用场景还是很多的，例如<strong>普通变量</strong>、<strong>函数的返回值类型</strong>、<strong>自定义数据类型</strong>以及<strong>模板</strong>都能够使用，下列就一一举例：<br><br></p>
-<p> <strong>1.应用在返回值类型上：</strong></p>
-<pre><code>//返回真或假的函数
-auto function(int num1,int num2)
+</br>
+
+<h3 id="二、具体步骤"><a href="#二、具体步骤" class="headerlink" title="二、具体步骤"></a>二、具体步骤</h3><blockquote>
+<p>根据数组的不同，有不同的写法，一般有“左闭右闭“、”左闭右开“、”左开右闭“三种写法，左开右闭不太常用这里就不细讲，只讲其他两种写法。</p>
+<p>左闭右闭：从数组的索引left到right这两个端点都包含在查找范围内。</p>
+<p>左闭右开：right不包含在查找范围内。</p>
+<p>左开右闭：left不包含在查找范围内。</p>
+</blockquote>
+</br>
+
+<h4 id="1-左闭右开"><a href="#1-左闭右开" class="headerlink" title="1.左闭右开"></a>1.左闭右开</h4><p><strong>初始化：</strong>定义初始值<code>left</code>和<code>right</code>的边界，left&#x3D;0，right&#x3D;nums.size()。</p>
+<p><strong>循环缩小范围：</strong></p>
+<ul>
+<li><p>循环的终止条件是<code>left&lt;right</code>。（因为right不包含在查找范围内）</p>
+</li>
+<li><p>计算中间值<code>mid=(left+right)/2</code>。（每次循环均要计算）</p>
+</li>
+<li><p>比较nums[mid]和target：</p>
+<ul>
+<li>nums[mid]&lt;target时，表示即使在当前区间中间位置的元素依然比target小，区间应该向右边缩小，left变量应该调整为<code>left=mid+1</code>。（因为mid是被查找过的，这里需要+1）</li>
+<li>nums[mid]&gt;target时，表示当前区间中间的元素大于target，区间许需要向左右边缩小，right变量应该调整为<code>right=mid</code>。（因为是左闭右开，所以right是不会被查到的，这里不需要-1）</li>
+<li>当前面两个判断均不满足时，也就意味着找到了target的值，直接返回mid下标。</li>
+</ul>
+</li>
+<li><p>当循环终止后，表示数组中没有target元素，根据要求返回特定的值即可。（如-1）</p>
+</li>
+</ul>
+</br>
+
+<p><strong>实现代码：</strong></p>
+<p><strong>C++：</strong></p>
+<pre class=" language-C++"><code class="language-C++">int binary_search(vector<int> v, int target)
 &#123;
-    return num1&gt;num2;
+    int left = 0, right = v.size() - 1;
+
+    while (left <= right)
+    &#123;
+        int mid = (left + right) / 2;
+        if (v[mid] > target) right = mid - 1;
+        else if (v[mid] < target)left = mid + 1;
+        else return mid;
+    &#125;
+    return -1;
 &#125;
 </code></pre>
-<p>上面代码中，返回值是bool类型，两个变量进行比较，返回真或假。<br><br></p>
-<p><strong>2.应用在自定义类型上：</strong></p>
-<pre><code>//自定义数据类型
-class Person
+</br>
+
+<p><strong>Python：</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span>target<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    left <span class="token operator">=</span> <span class="token number">0</span>
+    right <span class="token operator">=</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+
+    <span class="token keyword">while</span> left<span class="token operator">&lt;</span>right<span class="token punctuation">:</span>
+        mid <span class="token operator">=</span> <span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span> 
+
+        <span class="token keyword">if</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">></span>target<span class="token punctuation">:</span>right <span class="token operator">=</span> mid
+        <span class="token keyword">elif</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">&lt;</span>target<span class="token punctuation">:</span> left <span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> mid
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+</code></pre>
+</br>
+
+</br>
+
+
+<h4 id="2-左闭右闭"><a href="#2-左闭右闭" class="headerlink" title="2.左闭右闭"></a>2.左闭右闭</h4><p><strong>初始化：</strong>定义初始值<code>left</code>和<code>right</code>的边界，left&#x3D;0，right&#x3D;nums.size()-1。</p>
+<p><strong>循环缩小范围：</strong></p>
+<ul>
+<li><p>循环的终止条件是<code>left &lt;= right</code>。</p>
+</li>
+<li><p>计算中间值<code>mid = (left+right)/2</code>。（每次循环均要计算）</p>
+</li>
+<li><p>比较nums[mid]和target：</p>
+<ul>
+<li>nums[mid]&lt;target时，表示即使在当前区间中间位置的元素依然比target小，区间应该向右边缩小，left变量应该调整为<code>left=mid+1</code>。</li>
+<li>nums[mid]&gt;target时，表示当前区间中间的元素大于target，区间许需要向左右边缩小，right变量应该调整为<code>right=mid-1</code>。</li>
+<li>当前面两个判断均不满足时，也就意味着找到了target的值，直接返回mid下标。</li>
+</ul>
+</li>
+<li><p>当循环终止后，表示数组中没有target元素，根据要求返回特定的值即可。</p>
+</li>
+</ul>
+</br>
+
+<p><strong>实现代码：</strong></p>
+<p><strong>C++:</strong></p>
+<pre class=" language-C++"><code class="language-C++">int Binary_search1(vector<int> v, int target)
 &#123;
-public:
-    Person(string name,int age):m_Age(age),m_Name(name) &#123;&#125;
-    int m_Age;
-    string m_Name;
-&#125;
+    int left = 0, right = v.size() - 1;
+    while (left <= right)
+    &#123;
+        int mid = (left + right) / 2;
 
-//测试函数
-void test01()
-&#123;
-    auto p = new Person(&quot;张三&quot;, 10);
-    cout &lt;&lt;&quot;姓名：&quot; &lt;&lt; p-&gt;m_Name &lt;&lt; &quot;\t年龄：&quot; &lt;&lt; p-&gt;m_Age &lt;&lt; endl;
-&#125;
-</code></pre>
-<p>这样也是完全行得通的，并且更加简洁了。也不要进行地址解引用。<br><br></p>
-<p><strong>3.应用在模板上：</strong><br>  <em>注意：这里的auto使用并不是指在模板参数列表上！</em></p>
-<p>我们以STL中的vector容器为例</p>
-<pre><code>vector&lt;int&gt;v;  
-//初始化
-for(int i = 0;i&lt;10;i++)
-&#123;
-    v.push_back(i+10);
-&#125;
-//遍历
-for(auto it = v.begin();it!=v.end();it++)
-&#123;
-    cout&lt;&lt;*it&lt;&lt;&quot; &quot;;
-&#125;
-cout&lt;&lt;endl;
-</code></pre>
-<p>上面是使用迭代器进行遍历，这里的auto推导成了vector&lt; int &gt;的迭代器，和正常使用迭代器遍历没什么区别。</p>
-<p><em>拓展：在推导出类型来的时候，我们想验证auto里面是不是我们想要的类型，在某种情况下会出现二义性，这时候想查看变量的类型时，可以使用typeid()函数，返回值是string类型</em>。<strong>具体用法：cout&lt;&lt;typeid(变量).name()&lt;&lt;endl;</strong> 输出的是变量的类型。</p>
-<hr><br>
-
-
-<h2 id="3、使用auto的注意事项"><a href="#3、使用auto的注意事项" class="headerlink" title="  3、使用auto的注意事项"></a><a id="three"></a>  3、使用auto的注意事项</h2><br/>
-
-<p><strong>1.必须在定义时初始化auto类型的变量</strong><br>下列为反例：</p>
-<pre><code>auto a;  //错误
-</code></pre>
-<br/>
-
-<p><strong>2.auto类型不能定义数组</strong><br>下列为反例：</p>
-<pre><code>auto array[10]; //错误
-</code></pre>
-<br/>
-
-<p><strong>3.auto类型的一旦初始初始化，就不可更改类型</strong><br>下面为反例：</p>
-<pre><code>auto a = 10;
-a = &quot;ABC&quot;; //错误
-</code></pre>
-<p>当auto的类型一旦确定下来便不可更改。<br><br/></p>
-<p><strong>4.函数参数列表、模板等需要直接确定类型的场景不能使用auto</strong><br>下面为反例：</p>
-<pre><code>void function(auto num1)&#123;&#125; //错误！
-vector&lt;auto&gt;v;//错误
-...
-</code></pre>
-<p>但经过测试，在QT中是允许这样操作的，visaul Studio 2022中不行。<br><br/></p>
-<p><strong>5.auto不能作为自定义数据类型的成员的变量类型</strong><br>下列是反例：</p>
-<pre><code>class Person
-&#123;
-public:
-    auto m_Age; //错误
+        if (v[mid] > target)
+            right = mid - 1;
+        else if (v[mid] < target)
+            left = mid + 1;
+        else
+            return mid;
+    &#125;
+    return -1;
 &#125;
 </code></pre>
-<hr/>
-*结尾：对于auto的认知我只知道这么多，其实它的功能还有很多，这就让大家去挖掘了。第一次写博客，有很多不足的地方，若某部分出现错误请大佬指正，谢谢！*
+</br>
 
+<p><strong>Python：</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span>target<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    left <span class="token operator">=</span> <span class="token number">0</span>
+    right <span class="token operator">=</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
 
-
-<pre class=" language-C++"><code class="language-C++">int i = 10;
+    <span class="token keyword">while</span> left<span class="token operator">&lt;=</span>right<span class="token punctuation">:</span>
+        mid <span class="token operator">=</span> <span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span> <span class="token comment" spellcheck="true"># 整除</span>
+    
+        <span class="token keyword">if</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">></span>target<span class="token punctuation">:</span>right <span class="token operator">=</span> mid<span class="token number">-1</span>
+        <span class="token keyword">elif</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">&lt;</span>target<span class="token punctuation">:</span> left <span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> mid
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
 </code></pre>
+</br>
+
+</br>
+
+</br>
+
+<h3 id="三、代码核心点"><a href="#三、代码核心点" class="headerlink" title="三、代码核心点"></a>三、代码核心点</h3><p><strong>right初始化：</strong>上述代码中，right可以分为right&#x3D;nums.size()和right&#x3D;nums.size()-1，并且分为”左闭右开“和”左闭右闭“两种写法，确定数组需要使用那种查找方式来定义right，当right&#x3D;nums.size()-1时，一般更倾向使用”左闭右闭“写法。</p>
+<p><strong>区间边界定义：</strong>根据”左闭右开“和”左闭右闭“，right和left需要有所改变，例如在”左闭右闭“的实现中，重新划分边界是<code>right = mid - 1</code>；而在”左闭右开“时是<code>right = mid;</code>。</p>
 
                 
             </div>
@@ -607,7 +648,7 @@ public:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aimang2002.github.io/2022/07/27/C++11%E6%96%B0%E7%89%B9%E6%80%A7%E2%80%94auto%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">https://aimang2002.github.io/2022/07/27/C++11%E6%96%B0%E7%89%B9%E6%80%A7%E2%80%94auto%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</a>
+                    <a href="https://aimang2002.github.io/2025/03/26/binary_search/">https://aimang2002.github.io/2025/03/26/binary_search/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -645,8 +686,8 @@ public:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/auto/">
-                                    <span class="chip bg-color">auto</span>
+                                <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%8Calgotithm/">
+                                    <span class="chip bg-color">二分查找，algotithm</span>
                                 </a>
                             
                         </div>
@@ -816,66 +857,18 @@ public:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/07/28/Linux%E2%80%94%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/">
+                <a href="/2025/03/26/binary_search/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Linux_更改国内镜像源">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="二分搜索法">
                         
-                        <span class="card-title">Linux_更改国内镜像源</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%95%9C%E5%83%8F%E6%9B%B4%E6%8D%A2/">
-                        <span class="chip bg-color">镜像更换</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/07/27/C++11%E6%96%B0%E7%89%B9%E6%80%A7%E2%80%94auto%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="C++11新特性—auto的使用方法">
-                        
-                        <span class="card-title">C++11新特性—auto的使用方法</span>
+                        <span class="card-title">二分搜索法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -886,14 +879,14 @@ public:
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C-11%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
-                                    C++11新特性
+                            <a href="/categories/algorithm/" class="post-category">
+                                    algorithm
                                 </a>
                             
                             
@@ -904,8 +897,57 @@ public:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/auto/">
-                        <span class="chip bg-color">auto</span>
+                    <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%8Calgotithm/">
+                        <span class="chip bg-color">二分查找，algotithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/05/12/remoteConnectMySQL/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="远程连接MySQL">
+                        
+                        <span class="card-title">远程连接MySQL</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/">
+                        <span class="chip bg-color">远程连接</span>
                     </a>
                     
                 </div>
