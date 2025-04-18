@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据结构和算法————复杂度为O(n)的1~n因数之和, zh-CN">
+    <meta name="keywords" content="C++的RVO优化, zh-CN">
     <meta name="description" content="心有所向，日复一日，必有精进!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据结构和算法————复杂度为O(n)的1~n因数之和 | 埃芒的博客</title>
+    <title>C++的RVO优化 | 埃芒的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据结构和算法————复杂度为O(n)的1~n因数之和</h1>
+                    <h1 class="description center-align post-title">C++的RVO优化</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%9B%A0%E6%95%B0%E4%B9%8B%E5%92%8C/">
-                                <span class="chip bg-color">因数之和</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -431,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/algorithm/" class="post-category">
-                                algorithm
+                            <a href="/categories/%E4%BC%98%E5%8C%96/" class="post-category">
+                                优化
                             </a>
                         
                     </div>
@@ -444,21 +444,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-29
+                    2025-04-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-27
+                    2025-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    161
+                    210
                 </div>
                 
 
@@ -485,99 +485,131 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>数据结构和算法——复杂度为O(n)的1~n因数之和</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-  <style type="text/css" >a{text-decoration: none}</style>
-</head>
-
-<body class="stackedit">
-  <div class="stackedit__html"><h1><a id="On1n_0"></a>复杂度为O(n)的1~n因数之和</h1>
-<p><b>目录<b><br>
-<a href="#toc-heading-1" style="text-decoration: none">一、题目描述</a><br>
-<a href="#toc-heading-2" style="text-decoration: none">二、传统写法</a><br>
-<a href="#toc-heading-3" style="text-decoration: none">三、优化分析</a><br>
-<a href="#toc-heading-4" style="text-decoration: none">四、代码演示</a></b></b></p><b>
-<hr>
-<h2><a id="a_idtocheading1a_12"></a>一、题目描述<a id="toc-heading-1"></a></h2>
-<p><strong>题目：</strong> 输入一个数字n，求出这个数从1~n的所有因数之和</p>
-<pre><code>输入样例：
-		12
-输出样例：
-		87
-</code></pre>
-<p><br><br><br></p>
-<hr>
-<h2><a id="a_idtocheading2a_25"></a>二、传统写法<a id="toc-heading-2"></a></h2>
-<p>所谓传统写法就暴力枚举，将每一个数字都提出所有的因子，然后进行相加统计，获得最终结果，方式如下：</p>
-<pre class=" language-prism language-C++"><code class="language-prism language-C++">int function(const int n)
-&#123;
-	long long sum = 0;
-	for (int i = 1; i <= n; i++)
-	&#123;
-		for (int j = 1; j <= i; j++)
-		&#123;
-			if (i%j == 0)sum += j;
-		&#125;
-	&#125;
-	return sum;
-&#125;
-</code></pre>
-<p>这种算法的复杂度是很高的，所用的时间复杂度为O(n<sup>2</sup>)。所以就出现了下面这种优化的方案：</p>
-<pre class=" language-prism language-C++"><code class="language-prism language-C++">int function(const int n)
-&#123;
-	long long sum = 0;
-	for (int i = 1; i <= n; i++)  // 时间复杂度为：O(n)
-	&#123;
-		for (int j = 1; j * j <= i; j++) // 时间复杂度为：O(根号n)
-		&#123;
-			if (i % j == 0)
-			&#123;
-				sum += j;
-				if (j * j == i)continue; //break和continue都一样
-				sum += i / j;
-			&#125;
-		&#125;
-	&#125;
-	return sum;
-&#125;
-</code></pre>
-<p>这种优化的灵感是来自当 <code>i*j==n</code>时，相当于找到了两个因子，所以这里选择开方的方式判断，时间复杂度为<mark>0(n根号n)</mark>，对比前一个算法来说节省了不少时间。不过复杂度还是很大，当n&lt;=10<sup>7</sup>时，计算时间将会超过1秒。</p>
-<p><br><br><br></p>
-<hr>
-<h2><a id="a_idtocheading3a_67"></a>二、优化分析<a id="toc-heading-3"></a></h2>
-<p>比起暴力的枚举不同，这个算法使用的是1~n中每个因子提供的次数所算出来的，我们假设n=6，如下图：</p>
-<p><img src="https://img-blog.csdnimg.cn/c3c52b035c614b77b2fb92a142e74f5a.png" alt="图1"><br>
-上面表格中，因子1在1~n中存在的数量是6，具体存在的数字是1 2 3 4 5 6；同样理解，因子2在1~n中存在的数量是3，具体存在的数字是2 4 6。我们知道各个因子出现的次数之后，将每因子次数加起来再统计，最终结果就是我们所需要的因数之和，公式为i*(n/i)。<br>
-<br><br>
-<strong>公式<code>i×(n/i)</code>的由来：</strong> i即时因子从1~n的每个因子；(n/i)即是计算因子数量，需要注意这里若i=4时，为什么结果为1而不是浮点数，第一是两个整数计算后还是整数，第二是若是两个，则这里存在它的数字就是4 8，这超出了n的最大值。</p>
-<p><br><br><br></p>
-<hr>
-<h2><a id="a_idtocheading4a_79"></a>二、代码演示<a id="toc-heading-4"></a></h2>
-<p>下面是优化后的解法:</p>
-<pre class=" language-prism language-C++"><code class="language-prism language-C++">int function(const int n)
-&#123;
-	long long sum = 0;
-	for (int i = 1; i <= n; i++)
-	&#123;
-		sum += i * (n / i);
-	&#125; 
-	return sum;
-&#125;
-</code></pre>
-<p>这种算法的时间复杂度是O(n)，优化成了线性阶，当n&lt;=10<sup>9</sup>时，计算的时间也是很理想的。</p>
-<blockquote>
-<p>初学小白，若有不足的地方还请大佬指正，谢谢！</p>
+                <h1 id="RVO优化"><a href="#RVO优化" class="headerlink" title="RVO优化"></a>RVO优化</h1><blockquote>
+<p>本问对C++中RVO和NRVO进行讲解。</p>
 </blockquote>
-</b></div>
-</body>
+<h1 id="1、NRVO和RVO"><a href="#1、NRVO和RVO" class="headerlink" title="1、NRVO和RVO"></a>1、NRVO和RVO</h1><p>​		RVO(Return Value optimization,返回值优化)和NRVO（Named Return Value Optimization，命名返回值优化）是C++编译器对局部对象的一种优化，用于消除函数返回值时产生的临时对象和拷贝的额外开销，而是在<strong>目标位置</strong>构造返回值的优化技术，用于避免不必要的临时开销，RVO在C++98时作为性能提升常见的优化手段，但那时候并未强制，首次明确允许是在C++11中，而C++17变为强制要求。</p>
+<h1 id="2、优化对比"><a href="#2、优化对比" class="headerlink" title="2、优化对比"></a>2、优化对比</h1><pre class=" language-C++"><code class="language-C++">#include <iostream>
+using namespace std;
 
-</html>
+class Test
+&#123;
+public:
+    Test() &#123; cout << "构造" << endl; &#125;
+    Test(const Test &T)
+    &#123;
+        cout << "拷贝构造" << endl;
+        // ...
+    &#125;
+    ~Test() &#123; cout << "析构" << endl; &#125;
+&#125;;
+
+Test getTest()
+&#123;
+    Test T;
+    return T;
+&#125;
+
+int main()
+&#123;
+    Test t = getTest();
+    return 0;
+&#125;
+</code></pre>
+<h3 id="2-1-未开启优化"><a href="#2-1-未开启优化" class="headerlink" title="2.1 未开启优化"></a>2.1 未开启优化</h3><p>关闭优化：</p>
+<pre class=" language-shell"><code class="language-shell">g++ -std=c++11 main.cpp -o main.exe  -fno-elide-constructors
+</code></pre>
+<p>​		如上代码若没有开RVO优化，会输出如下内容：</p>
+<pre class=" language-text"><code class="language-text">构造          // getTest() 中的局部对象 T 构造
+拷贝构造       // return T → 拷贝到临时对象
+析构          // getTest() 中的 T 析构（函数退出）
+拷贝构造       // 临时对象拷贝到 main 的 t
+析构          // 临时对象析构（表达式结束）
+析构          // main 的 t 析构（程序退出）
+</code></pre>
+<p>​		在这个执行过程中，出现了很多不必要的开销，而RVO就是用来解决该问题的。</p>
+<blockquote>
+<p>需要注意的时，当不强行指定C++11时，输出结果可能是如下这样的：</p>
+<pre class=" language-text"><code class="language-text">构造
+拷贝构造
+析构
+析构
+</code></pre>
+<p>这是由于移动语义的干扰。</p>
+</blockquote>
+<h3 id="2-2-开启优化"><a href="#2-2-开启优化" class="headerlink" title="2.2 开启优化"></a>2.2 开启优化</h3><p>​		开启RVO优化后，输出的内容如下：</p>
+<pre class=" language-C++"><code class="language-C++">构造
+析构
+</code></pre>
+<p>​		高下立判，在编译器优化的时候，它会跳过不必要的拷贝，直接构造和析构。</p>
+<h1 id="3、优化原理"><a href="#3、优化原理" class="headerlink" title="3、优化原理"></a>3、优化原理</h1><p>​		如上代码中，RVO优化直接在<code>Test t = getTest()</code>中预留一个内存位置，来避免重复拷贝。也就是说，RVO的优化是局部对象的创建并非在函数的栈帧中，而是在main函数t的位置，这个位置预留了一个空间，等待<code>getTest</code>函数中的<code>T</code>被实例化（注意：预留空间并非体现初始化，不会影响代码执行顺序），实例化的位置是之前被预留的位置，从而避免不必要的拷贝。</p>
+<p>​		</p>
+<h1 id="4、RVO和NRVO的区别"><a href="#4、RVO和NRVO的区别" class="headerlink" title="4、RVO和NRVO的区别"></a>4、RVO和NRVO的区别</h1><p>​		RVO和NRVO都是C++编译器为了消除不必要的对象拷贝而采用的优化技术。它们的核心区别在于 <strong>优化的触发条件</strong> 和 <strong>应用场景</strong>。</p>
+<h3 id="4-1-NRVO"><a href="#4-1-NRVO" class="headerlink" title="4.1  NRVO"></a>4.1  NRVO</h3><p>​		本质是返回一个函数内部的实例对象，例如现在函数中构造一个对象，再返回它。一般用来优化局部对象存在名字的情况，需要分析生命周期和代码路径，优化较为复杂，并且在多路径返回的情况下容易失效。</p>
+<h3 id="4-2-RVO"><a href="#4-2-RVO" class="headerlink" title="4.2 RVO"></a>4.2 RVO</h3><p>​		直接返回一个对象（对象无名字），在局部中并没有初始化的情况，这种情况下编译器更容易分析，优化确定性很高，在C++17中，它甚至是强制性的。</p>
+<h3 id="4-3-NRVO可能失效的地方"><a href="#4-3-NRVO可能失效的地方" class="headerlink" title="4.3 NRVO可能失效的地方"></a>4.3 NRVO可能失效的地方</h3><p>​		即使到C++23，<strong>NRVO仍是可选的优化</strong>。开发者无法完全依赖它，例如下：</p>
+<pre class=" language-C++"><code class="language-C++">#include <iostream>
+using namespace std;
+
+class Test
+&#123;
+public:
+    Test(int a) &#123; cout << "构造" << endl; &#125;
+    Test() &#123; cout << "构造" << endl; &#125;
+    Test(const Test &T)
+    &#123;
+        cout << "拷贝构造" << endl;
+        // ...
+    &#125;
+    ~Test() &#123; cout << "析构" << endl; &#125;
+&#125;;
+
+Test getTest()
+&#123;
+    Test T;
+    return T;
+&#125;
+
+Test createNRVO(bool flag)
+&#123;
+    Test a(1), b(2);
+    if (flag)
+    &#123;
+        return a; // 尝试NRVO优化a到调用方内存
+    &#125;
+    else
+    &#123;
+        return b; // 若返回b，编译器可能无法确定目标地址
+    &#125;
+&#125;
+
+int main()
+&#123;
+    Test t = createNRVO(true);
+    return 0;
+&#125;
+</code></pre>
+<p>以上内容输出的结果是：</p>
+<pre class=" language-text"><code class="language-text">构造
+构造
+拷贝构造
+析构
+析构
+析构
+</code></pre>
+<h3 id="4-4-如何细分"><a href="#4-4-如何细分" class="headerlink" title="4.4 如何细分"></a>4.4 如何细分</h3><ol>
+<li><strong>优先使用RVO</strong>：<br>在简单场景中，直接返回临时对象（如<code>return Test(args);</code>），充分利用C++17的强制优化。</li>
+<li><strong>为NRVO创造条件</strong>：<ul>
+<li>保持函数单一返回路径（如只在末尾返回一个具名对象）。</li>
+<li>避免在返回前对对象进行复杂操作（如多分支修改）。</li>
+</ul>
+</li>
+<li>结合移动语义：<ul>
+<li>为类实现移动构造函数作为备选方案。</li>
+</ul>
+</li>
+</ol>
+<p><strong>总结：本质上无论是NRVO或RVO说的都是一个东西，做的是同一件事，它们内部实现的方式和触发条件不一致而已。</strong>但是NRVO更加宽松，它是否优化并未是一个标准的东西，开发者无法完全的依赖它，而RVO是确定性的优化，在使用时，可以根据4.1和4.2标题中的的解释来酌情使用，并且没有特殊条件时，优先使用RVO。</p>
 
                 
             </div>
@@ -604,7 +636,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aimang2002.github.io/2022/09/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%BAO(n)%E7%9A%841_n%E5%9B%A0%E6%95%B0%E4%B9%8B%E5%92%8C/">https://aimang2002.github.io/2022/09/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%BAO(n)%E7%9A%841_n%E5%9B%A0%E6%95%B0%E4%B9%8B%E5%92%8C/</a>
+                    <a href="https://aimang2002.github.io/2025/04/17/RVO/">https://aimang2002.github.io/2025/04/17/RVO/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -642,8 +674,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%9B%A0%E6%95%B0%E4%B9%8B%E5%92%8C/">
-                                    <span class="chip bg-color">因数之和</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -813,17 +845,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/11/23/C%20_C++%20malloc%E5%92%8Cnew/">
+                <a href="/2025/04/17/RVO/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="C/C++ malloc和new">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="C++的RVO优化">
                         
-                        <span class="card-title">C/C++ malloc和new</span>
+                        <span class="card-title">C++的RVO优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -833,26 +866,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C-C/" class="post-category">
-                                    C/C++
+                            <a href="/categories/%E4%BC%98%E5%8C%96/" class="post-category">
+                                    优化
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/malloc/">
-                        <span class="chip bg-color">malloc</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
@@ -866,13 +900,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%20%E2%80%94%E2%80%94%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">
+                <a href="/2025/03/26/binary_search/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="数据结构和算法————计数排序">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="二分搜索法">
                         
-                        <span class="card-title">数据结构和算法————计数排序</span>
+                        <span class="card-title">二分搜索法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -883,7 +917,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-26
                             </span>
                         <span class="publish-author">
                             
@@ -900,8 +934,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">计数排序</span>
+                    <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
+                        <span class="chip bg-color">二分查找</span>
                     </a>
                     
                 </div>
